@@ -1,0 +1,73 @@
+---
+import { motion } from "framer-motion";
+
+const options = [
+  { title: "Wrinkles", percentage: 75 },
+  { title: "Unevenness", percentage: 75 },
+  { title: "Pigmentation", percentage: 75 },
+  { title: "Smoothness", percentage: 75 },
+];
+---
+
+<style>
+  .pie-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+  }
+
+  .circle {
+    transform: rotate(-90deg);
+    transform-origin: center;
+  }
+
+  @keyframes fillRing {
+    from {
+      stroke-dasharray: 0 251;
+    }
+    to {
+      stroke-dasharray: var(--fill) 251;
+    }
+  }
+
+  .progress {
+    animation: fillRing 2s ease-out forwards;
+  }
+</style>
+
+
+
+
+    <div class="pie-container">
+        {options.map((item) => (
+        <div class="flex flex-col items-center">
+            <svg width="120" height="120" viewBox="0 0 100 100">
+            <!-- Background Circle -->
+            <circle cx="50" cy="50" r="40" stroke="#2a2a2a" stroke-width="8" fill="none" />
+            <!-- Animated Progress Circle -->
+            <circle 
+                cx="50" cy="50" r="40" 
+                stroke="url(#gradient)" stroke-width="8" fill="none"
+                stroke-dasharray="0 251"
+                stroke-linecap="round"
+                class="circle progress"
+                style={`--fill: ${(item.percentage / 100) * 251}`}
+            />
+            <!-- Gradient Definition -->
+            <defs>
+                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="cyan" />
+                <stop offset="100%" stop-color="blue" />
+                </linearGradient>
+            </defs>
+            </svg>
+            <p class="mt-2 text-lg font-semibold text-white">{item.title}</p>
+        </div>
+        ))}
+  </div>         
+
+
+

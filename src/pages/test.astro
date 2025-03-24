@@ -1,0 +1,179 @@
+---
+import { useEffect } from "react";
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Age & Real Age Prediction</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #ff9966, #ff5e62);
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+            color: black;
+        }
+        h2, h3 {
+            color: #ff5e62;
+        }
+        button {
+            background: #ff5e62;
+            border: none;
+            color: white;
+            padding: 12px 18px;
+            margin-top: 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #ff9966;
+            transform: scale(1.05);
+        }
+        select {
+            padding: 8px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
+            text-align: center;
+        }
+        .factor-container {
+            text-align: left;
+            margin: 10px 0;
+        }
+        label {
+            font-weight: bold;
+        }
+        #video-container {
+            position: relative;
+            display: inline-block;
+        }
+        #video {
+            display: block;
+            border-radius: 8px;
+            border: 2px solid #ff5e62;
+        }
+        #faceOutline {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 180px;
+            height: 240px;
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        #capturedImage {
+            display: none;
+            width: 100%;
+            margin-top: 15px;
+            border-radius: 8px;
+            border: 2px solid #ff5e62;
+        }
+        #result {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 15px;
+            color: #ff5e62;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Skin Age & Real Age Prediction</h2>
+        
+        <div id="video-container">
+            <video id="video" width="400" height="300" autoplay></video>
+            <div id="faceOutline"></div>
+        </div>
+        <button id="capture">📸 Capture</button>
+
+        <canvas id="canvas" width="400" height="300" style="display: none;"></canvas>
+        <img id="capturedImage" />
+        
+        <h3>Skin Factors</h3>
+        
+        <div class="factor-container">
+            <label>🌞 Sun Exposure:</label>
+            <select id="sun_exposure">
+                <option value="very_low">Very Low</option>
+                <option value="low">Low</option>
+                <option value="moderate">Moderate</option>
+                <option value="high">High</option>
+                <option value="very_high">Very High</option>
+            </select>
+        </div>
+
+        <div class="factor-container">
+            <label>💤 Sleep Cycle:</label>
+            <select id="sleep_cycle">
+                <option value="very_low">Very Low</option>
+                <option value="low">Low</option>
+                <option value="moderate">Moderate</option>
+                <option value="high">High</option>
+                <option value="very_high">Very High</option>
+            </select>
+        </div>
+
+        <div class="factor-container">
+            <label>🥗 Diet Level:</label>
+            <select id="diet_level">
+                <option value="very_low">Very Low</option>
+                <option value="low">Low</option>
+                <option value="moderate">Moderate</option>
+                <option value="high">High</option>
+                <option value="very_high">Very High</option>
+            </select>
+        </div>
+
+        <div class="factor-container">
+            <label>😰 Stress Level:</label>
+            <select id="stress_level">
+                <option value="very_low">Very Low</option>
+                <option value="low">Low</option>
+                <option value="moderate">Moderate</option>
+                <option value="high">High</option>
+                <option value="very_high">Very High</option>
+            </select>
+        </div>
+
+        <div class="factor-container">
+            <label>💧 Water Intake:</label>
+            <select id="water_intake">
+                <option value="very_low">Very Low</option>
+                <option value="low">Low</option>
+                <option value="moderate">Moderate</option>
+                <option value="high">High</option>
+                <option value="very_high">Very High</option>
+            </select>
+        </div>
+        
+        <button id="predict">🔍 Predict Age</button>
+        <h3 id="result"></h3>
+
+        <button id="result_page">
+            <a href="http://localhost:4321/results">Get Result</a>
+        </button>
+
+        <div id="insights"></div>
+        <div id="skin_quality_score"></div>
+    </div>
+
+    <script src="/script.js" defer></script>
+</body>
+</html>
