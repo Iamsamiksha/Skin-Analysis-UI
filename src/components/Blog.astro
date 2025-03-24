@@ -1,72 +1,89 @@
 ---
-import Container from "./Container.astro"
+import Container from "./Container.astro";
 
+const skinIssues = [
+  {
+    image: "https://phiclinics.in/wp-content/uploads/2024/03/Fine-lines-Wrinkles-1.jpg",
+    title: "Fine Lines & Wrinkles",
+    description: "Loss of collagen and repeated expressions cause visible aging lines over time.",
+  },
+  {
+    image: "https://cdn1.npcdn.net/images/17315635473b198d0b1af9f6a018572ec35262c438.webp?md5id=542a659782a0b10f3b9bf402455d3169&new_width=1000&new_height=1000&size=max&w=-62170008925&from=jpeg",
+    title: "Pigmentation",
+    description: "Uneven skin tone from excess melanin, sun exposure, or hormonal changes.",
+  },
+  {
+    image: "https://t4.ftcdn.net/jpg/05/05/13/69/360_F_505136963_IXrvryaszca1gr3AdLK025QSTCPe22u5.jpg",
+    title: "Dark Circles",
+    description: "Tired-looking eyes from lack of sleep, genetics, or poor blood circulation.",
+  },
+  {
+    image: "https://aestheticdermatologymd.com/wp-content/uploads/2021/05/uneven-skin-tone.jpeg",
+    title: "Uneven Skin Tone",
+    description: "Discoloration, redness, or dark spots from sun damage, pollution, or irritation.",
+  },
+];
 ---
 
-<div id="blog">
+<div id="features" class="py-16">
   <Container>
-      <div class="mb-12 space-y-2 text-center">
-        <h2 class="text-3xl font-bold text-gray-800 md:text-4xl dark:text-white">Latest Articles</h2>
-        <p class="lg:mx-auto lg:w-6/12 text-gray-600 dark:text-gray-300">
-          Quam hic dolore cumque voluptate rerum beatae et quae, tempore sunt, debitis dolorum officia
-          aliquid explicabo? Excepturi, voluptate?
-        </p>
+    <div class="md:w-2/3 lg:w-1/2 text-center mx-auto">
+      <div class="flex justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#9370f7" class="w-10 h-10">
+          <path fill-rule="evenodd" d="M9 4.5a.75.75 0 01.721.544l.813 2.846a3.75 3.75 0 002.576 2.576l2.846.813a.75.75 0 010 1.442l-2.846.813a3.75 3.75 0 00-2.576 2.576l-.813 2.846a.75.75 0 01-1.442 0l-.813-2.846a3.75 3.75 0 00-2.576-2.576l-2.846-.813a.75.75 0 010-1.442l2.846-.813A3.75 3.75 0 007.466 7.89l.813-2.846A.75.75 0 019 4.5z" clip-rule="evenodd" />
+        </svg>
       </div>
-      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        <div class="group p-6 sm:p-8 rounded-3xl bg-white border border-gray-100 dark:shadow-none dark:border-gray-700 dark:bg-gray-800 bg-opacity-50 shadow-2xl shadow-gray-600/10">
-          <div class="relative overflow-hidden rounded-xl">
-            <img src="https://images.unsplash.com/photo-1661749711934-492cd19a25c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80"
-            alt="art cover" loading="lazy" width="1000" height="667" class="h-64 w-full object-cover object-top transition duration-500 group-hover:scale-105"/>
+      
+      <h2 class="mt-6 text-4xl font-extrabold text-[#4e3af2]">
+        Know Your Skin Issues
+      </h2>
+      
+      <p class="mt-4 text-[#3a2a6f] text-lg">
+        The first step to radiant skin? Understanding what it needs. Identify common skin concerns and how to treat them.
+      </p>
+    </div>
+
+    <!-- Card Grid -->
+    <div id="skin-issues" class="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      {skinIssues.map((issue, index) => (
+        <div 
+          key={index} 
+          class="group relative p-6 rounded-2xl shadow-lg 
+          bg-gradient-to-br from-white to-[#d9c6ff]
+          dark:from-[#2a1f57] dark:to-[#3b2e7e]
+          text-[#3a2d6a] dark:text-[#d1c6ff]
+          font-semibold
+          opacity-0 translate-y-8 transition-all duration-700 ease-out delay-[${index * 200}ms]
+          hover:scale-105 hover:shadow-xl"
+        >
+          <div class="flex flex-col items-center">
+            <div class="p-0 rounded-2xl shadow-sm">
+              <img src={issue.image} class="w-44 h-44 object-cover rounded-xl" alt={issue.title} />
+            </div>
+            <h5 class="text-lg font-extrabold mt-4 text-[#3a2d6a] dark:text-[#d1c6ff]">{issue.title}</h5>
+            <p class="mt-2 text-center text-[#51498a] dark:text-[#c0b2ff] text-sm font-bold">{issue.description}</p>
+            <a href="#" class="mt-4 block text-sm font-bold text-[#4e3af2] hover:underline">Learn More</a>
           </div>
-          <div class="mt-6 relative">
-            <h3 class="text-2xl font-semibold text-gray-800 dark:text-white">
-              De fuga fugiat lorem ispum laboriosam expedita.
-            </h3>
-            <p class="mt-6 mb-8 text-gray-600 dark:text-gray-300">
-              Voluptates harum aliquam totam, doloribus eum impedit atque! Temporibus...
-            </p>
-            <a class="inline-block" href="#">
-              <span class="text-info dark:text-blue-300">Read more</span>
-            </a>
-          </div>
-          
         </div>
-        <div class="group p-6 sm:p-8 rounded-3xl bg-white border border-gray-100 dark:shadow-none dark:border-gray-700 dark:bg-gray-800 bg-opacity-50 shadow-2xl shadow-gray-600/10">
-          <div class="relative overflow-hidden rounded-xl">
-            <img src="https://images.unsplash.com/photo-1491895200222-0fc4a4c35e18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80"
-            alt="art cover" loading="lazy" width="1000" height="667" class="h-64 w-full object-cover object-top transition duration-500 group-hover:scale-105"/>
-          </div>
-          <div class="mt-6 relative">
-            <h3 class="text-2xl font-semibold text-gray-800 dark:text-white">
-              De fuga fugiat lorem ispum laboriosam expedita.
-            </h3>
-            <p class="mt-6 mb-8 text-gray-600 dark:text-gray-300">
-              Voluptates harum aliquam totam, doloribus eum impedit atque! Temporibus...
-            </p>
-            <a class="inline-block" href="#">
-              <span class="text-info dark:text-blue-300">Read more</span>
-            </a>
-          </div>
-          
-        </div>
-        <div class="group p-6 sm:p-8 rounded-3xl bg-white border border-gray-100 dark:shadow-none dark:border-gray-700 dark:bg-gray-800 bg-opacity-50 shadow-2xl shadow-gray-600/10">
-          <div class="relative overflow-hidden rounded-xl">
-            <img src="https://images.unsplash.com/photo-1620121692029-d088224ddc74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
-            alt="art cover" loading="lazy" width="1000" height="667" class="h-64 w-full object-cover object-top transition duration-500 group-hover:scale-105"/>
-          </div>
-          <div class="mt-6 relative">
-            <h3 class="text-2xl font-semibold text-gray-800 dark:text-white">
-              De fuga fugiat lorem ispum laboriosam expedita.
-            </h3>
-            <p class="mt-6 mb-8 text-gray-600 dark:text-gray-300">
-              Voluptates harum aliquam totam, doloribus eum impedit atque! Temporibus...
-            </p>
-            <a class="inline-block" href="#">
-              <span class="text-info dark:text-blue-300">Read more</span>
-            </a>
-          </div>
-          
-        </div>
-      </div>
+      ))}
+    </div>
   </Container>
 </div>
+
+<!-- JavaScript for Scroll-triggered Animation -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll("#skin-issues .group");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove("opacity-0", "translate-y-8");
+          observer.unobserve(entry.target); // Stop observing once animated
+        }
+      });
+    }, { threshold: 0.2 });
+
+    cards.forEach((card) => observer.observe(card));
+  });
+</script>
