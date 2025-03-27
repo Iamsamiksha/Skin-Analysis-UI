@@ -2,100 +2,61 @@
 import Container from "./Container.astro";
 ---
 
-<div id="skin-age-comparison">
+<div id="skin-aging-factors">
     <Container>
-        <div class="space-y-6 text-gray-600 md:flex md:gap-6 md:space-y-0 lg:gap-12 lg:items-center">
-            <!-- Interactive Aging Process -->
-            <div class="md:w-5/12 lg:w-1/2">
-                <h2 class="text-3xl font-bold text-gray-900 md:text-4xl dark:text-white">
-                    How Your Skin Ages Over Time
-                </h2>
-                <p class="my-6 text-gray-600 dark:text-gray-300">
-                    Your skin doesn’t age overnight—it’s a gradual process influenced by lifestyle and environment.
-                </p> 
-
-                <!-- Skin Aging Progress -->
-                <div class="space-y-4">
-                    <div>
-                        <h3 class="font-semibold text-lg text-gray-700 dark:text-purple-300">Youthful Skin (20s)</h3>
-                        <p class="text-gray-500 dark:text-gray-400">Firm, elastic, and hydrated.</p>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                            <div class="progress-bar bg-gradient-to-r from-purple-500 to-purple-700 h-2.5 rounded-full w-0" data-width="20%"></div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h3 class="font-semibold text-lg text-gray-700 dark:text-purple-300">Middle-Aged Skin (30s-40s)</h3>
-                        <p class="text-gray-500 dark:text-gray-400">Fine lines appear, slight loss of elasticity.</p>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                            <div class="progress-bar bg-gradient-to-r from-purple-500 to-purple-700 h-2.5 rounded-full w-0" data-width="40%"></div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h3 class="font-semibold text-lg text-gray-700 dark:text-purple-300">Aged Skin (50+)</h3>
-                        <p class="text-gray-500 dark:text-gray-400">Wrinkles deepen, dryness increases.</p>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                            <div class="progress-bar bg-gradient-to-r from-purple-500 to-purple-700 h-2.5 rounded-full w-0" data-width="80%"></div>
-                        </div>
-                    </div>
-                </div>
+        <div class="text-gray-600 space-y-6">
+            <!-- Section Title -->
+            <div class="text-center">
+                <h2 class="text-4xl font-semibold text-[#4d39ff] dark:text-white">What Speeds Up Skin Aging?</h2>
+                <p class="mt-4 text-lg text-gray-700 dark:text-gray-300">
+                    Several factors contribute to premature skin aging. Protect your skin by avoiding these common causes.
+                </p>
             </div>
 
-            <!-- Factors That Accelerate Aging -->
-            <div class="md:w-7/12 lg:w-1/2">
-                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">What Speeds Up Skin Aging?</h3>
+            <!-- Aging Factors Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-8">
+                <!-- Sun Exposure -->
+                <div class="flex flex-col items-center text-center p-4 rounded-xl shadow-lg bg-gradient-to-br from-[#f3e5f5] to-white dark:from-gray-900 dark:to-purple-800">
+                    <img src="/icons/sun.png" alt="Sun Exposure" class="w-12 h-12 mb-3">
+                    <h4 class="font-semibold text-lg text-gray-900 dark:text-white">Sun Exposure</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">UV rays break down collagen.</p>
+                </div>
 
-                <div class="grid grid-cols-2 gap-6 mt-6 text-gray-600 dark:text-gray-300">
-                    <div class="flex flex-col items-center text-center p-4 rounded-xl bg-gradient-to-br from-white to-purple-200 dark:from-gray-900 dark:to-purple-800">
-                        <h4 class="font-semibold text-lg text-gray-900 dark:text-white">Sun Exposure</h4>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">UV rays break down collagen.</p>
-                    </div>
+                <!-- Pollution & Smoking -->
+                <div class="flex flex-col items-center text-center p-4 rounded-xl shadow-lg bg-gradient-to-br from-[#f3e5f5] to-white dark:from-gray-900 dark:to-purple-800">
+                    <img src="src/components/air-pollution.png" alt="Pollution & Smoking" class="w-12 h-12 mb-3">
+                    <h4 class="font-semibold text-lg text-gray-900 dark:text-white">Pollution</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">Damages skin and reduces oxygen.</p>
+                </div>
 
-                    <div class="flex flex-col items-center text-center p-4 rounded-xl bg-gradient-to-br from-white to-purple-200 dark:from-gray-900 dark:to-purple-800">
-                        <h4 class="font-semibold text-lg text-gray-900 dark:text-white">Pollution & Smoking</h4>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">Damages skin and reduces oxygen.</p>
-                    </div>
+                <!-- Poor Diet -->
+                <div class="flex flex-col items-center text-center p-4 rounded-xl shadow-lg bg-gradient-to-br from-[#f3e5f5] to-white dark:from-gray-900 dark:to-purple-800">
+                    <img src="/icons/diet.png" alt="Poor Diet" class="w-12 h-12 mb-3">
+                    <h4 class="font-semibold text-lg text-gray-900 dark:text-white">Poor Diet</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">Lack of nutrients weakens skin.</p>
+                </div>
 
-                    <div class="flex flex-col items-center text-center p-4 rounded-xl bg-gradient-to-br from-white to-purple-200 dark:from-gray-900 dark:to-purple-800">
-                        <h4 class="font-semibold text-lg text-gray-900 dark:text-white">Poor Diet</h4>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">Lack of nutrients weakens skin.</p>
-                    </div>
+                <!-- Lack of Sleep -->
+                <div class="flex flex-col items-center text-center p-4 rounded-xl shadow-lg bg-gradient-to-br from-[#f3e5f5] to-white dark:from-gray-900 dark:to-purple-800">
+                    <img src="/icons/sleep.png" alt="Lack of Sleep" class="w-12 h-12 mb-3">
+                    <h4 class="font-semibold text-lg text-gray-900 dark:text-white">Lack of Sleep</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">Skin doesn’t repair properly.</p>
+                </div>
 
-                    <div class="flex flex-col items-center text-center p-4 rounded-xl bg-gradient-to-br from-white to-purple-200 dark:from-gray-900 dark:to-purple-800">
-                        <h4 class="font-semibold text-lg text-gray-900 dark:text-white">Lack of Sleep</h4>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">Skin doesn’t repair properly.</p>
-                    </div>
+                <!-- Skincare Neglect -->
+                <div class="flex flex-col items-center text-center p-4 rounded-xl shadow-lg bg-gradient-to-br from-[#f3e5f5] to-white dark:from-gray-900 dark:to-purple-800">
+                    <img src="/icons/skincare.png" alt="Skincare Neglect" class="w-12 h-12 mb-3">
+                    <h4 class="font-semibold text-lg text-gray-900 dark:text-white">Skincare Neglect</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">Skipping sunscreen accelerates aging.</p>
+                </div>
 
-                    <div class="flex flex-col items-center text-center p-4 rounded-xl bg-gradient-to-br from-white to-purple-200 dark:from-gray-900 dark:to-purple-800">
-                        <h4 class="font-semibold text-lg text-gray-900 dark:text-white">Skincare Neglect</h4>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">Skipping sunscreen accelerates aging.</p>
-                    </div>
-
-                    <div class="flex flex-col items-center text-center p-4 rounded-xl bg-gradient-to-br from-white to-purple-200 dark:from-gray-900 dark:to-purple-800">
-                        <h4 class="font-semibold text-lg text-gray-900 dark:text-white">Chronic Stress</h4>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">Increases cortisol, breaking down collagen.</p>
-                    </div>
+                <!-- Chronic Stress -->
+                <div class="flex flex-col items-center text-center p-4 rounded-xl shadow-lg bg-gradient-to-br from-[#f3e5f5] to-white dark:from-gray-900 dark:to-purple-800">
+                    <img src="/icons/stress.png" alt="Chronic Stress" class="w-12 h-12 mb-3">
+                    <h4 class="font-semibold text-lg text-gray-900 dark:text-white">Chronic Stress</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">Increases cortisol, breaking down collagen.</p>
                 </div>
             </div>
         </div>
     </Container>
 </div>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                const progressBar = entry.target;
-                progressBar.style.width = progressBar.getAttribute("data-width");
-                progressBar.style.transition = "width 1.5s ease-out";
-            }
-        });
-    }, { threshold: 0.3 });
-
-    document.querySelectorAll(".progress-bar").forEach((bar) => {
-        observer.observe(bar);
-    });
-});
-</script>
